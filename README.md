@@ -135,6 +135,9 @@ As required by the assignment guidelines (minimum 4 meaningful commits):
 4. **Commit 4 (`feat: integrate ai academic advisor, test suite, and documentation`):**  
    Integrated AI-guided decision-making logic (`getAIAdvice()`), automated multi-tier demonstration, test inputs/outputs (`tests/sample_input.txt`, `tests/sample_output.txt`), `AI_USAGE_LOG.md`, and comprehensive `README.md`.
 
+### GitHub Issue Tracking
+- **Issue #1:** [Implement dynamic CGPA calculation and test search function](https://github.com/ridhimajalwi1907/student-record-ai-c-/issues/1) — *Resolved and Closed as Completed*.
+
 ---
 
 ## 🎓 Viva Preparation Notes
