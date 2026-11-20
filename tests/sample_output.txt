@@ -1,0 +1,357 @@
+======================================================================
+   UNIVERSITY OF PETROLEUM AND ENERGY STUDIES (UPES)
+   Department of Computer Science & Engineering
+   PRC1001: Programming in C - Project-Based Assignment
+   Project: AI-Assisted Student Record & Result Management System
+   Author SAP ID: 590034676
+======================================================================
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 5
+
+Total Students: 5
+------------------------------------------------------------------------------------------------------------------------
+SAP ID       Roll No      Name                 Phone        Email                            Year  Sem   CGPA  
+------------------------------------------------------------------------------------------------------------------------
+590034676    R214223001   Ridhima Jalwi        9876543210   ridhima.590034676@stu.upes.ac.in 1     1     9.40  
+590034102    R214223045   Aarav Sharma         9811223344   aarav.sharma@stu.upes.ac.in      2     3     8.30  
+590034215    R214223089   Ananya Verma         9822334455   ananya.verma@stu.upes.ac.in      3     5     7.02  
+590034330    R214223120   Rohan Gupta          9833445566   rohan.gupta@stu.upes.ac.in       1     2     5.40  
+590034450    R214223155   Diya Patel           9844556677   diya.patel@stu.upes.ac.in        4     7     9.05  
+------------------------------------------------------------------------------------------------------------------------
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 3
+
+========================================================================================
+               STUDENT CGPA CALCULATION REPORT (Average of Available SGPAs)              
+========================================================================================
+SAP ID       Roll No        Name                   Year   Completed Sems   CGPA    
+----------------------------------------------------------------------------------------
+590034676    R214223001     Ridhima Jalwi          1      1                9.40    
+590034102    R214223045     Aarav Sharma           2      2                8.30    
+590034215    R214223089     Ananya Verma           3      4                7.02    
+590034330    R214223120     Rohan Gupta            1      1                5.40    
+590034450    R214223155     Diya Patel             4      6                9.05    
+========================================================================================
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 4
+
+=============================================================
+           ACADEMIC YEAR-WISE AVERAGE CGPA REPORT            
+=============================================================
+Academic Year Student Count      Average CGPA    
+-------------------------------------------------------------
+1st Year     2                  7.40            
+2nd Year     1                  8.30            
+3rd Year     1                  7.02            
+4th Year     1                  9.05            
+=============================================================
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 2
+
+--- SEARCH STUDENT RECORD ---
+Enter SAP ID to search: 590034676
+
+[FOUND] Record details for SAP ID 590034676:
+-------------------------------------------------------------
+SAP ID          : 590034676
+Roll Number     : R214223001
+Full Name       : Ridhima Jalwi
+Contact Phone   : 9876543210
+Email Address   : ridhima.590034676@stu.upes.ac.in
+Academic Year   : Year 1
+Current Semester: Semester 1
+Semester SGPAs  :
+  Sem 1: 9.40  |    Sem 2: [N/A]  |    Sem 3: [N/A]  |    Sem 4: [N/A]
+  Sem 5: [N/A]  |    Sem 6: [N/A]  |    Sem 7: [N/A]  |    Sem 8: [N/A]
+
+Calculated CGPA : 9.40
+Academic Status : Excellent Performance
+AI Recommendation:
+  Outstanding academic record! Maintain your current study pattern. Recommended to engage in research publications, competitive programming, and target premier tier-1 technical internships.
+-------------------------------------------------------------
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 7
+
+========================================================================================================================
+                                STUDENT RECORDS SORTED BY SAP ID (INCREASING ORDER)                                     
+========================================================================================================================
+------------------------------------------------------------------------------------------------------------------------
+SAP ID       Roll No      Name                 Phone        Email                            Year  Sem   CGPA  
+------------------------------------------------------------------------------------------------------------------------
+590034102    R214223045   Aarav Sharma         9811223344   aarav.sharma@stu.upes.ac.in      2     3     8.30  
+590034215    R214223089   Ananya Verma         9822334455   ananya.verma@stu.upes.ac.in      3     5     7.02  
+590034330    R214223120   Rohan Gupta          9833445566   rohan.gupta@stu.upes.ac.in       1     2     5.40  
+590034450    R214223155   Diya Patel           9844556677   diya.patel@stu.upes.ac.in        4     7     9.05  
+590034676    R214223001   Ridhima Jalwi        9876543210   ridhima.590034676@stu.upes.ac.in 1     1     9.40  
+------------------------------------------------------------------------------------------------------------------------
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 8
+
+========================================================================================================================
+                                  STUDENT RECORDS SORTED BY NAME (ALPHABETICAL ORDER)                                   
+========================================================================================================================
+------------------------------------------------------------------------------------------------------------------------
+SAP ID       Roll No      Name                 Phone        Email                            Year  Sem   CGPA  
+------------------------------------------------------------------------------------------------------------------------
+590034102    R214223045   Aarav Sharma         9811223344   aarav.sharma@stu.upes.ac.in      2     3     8.30  
+590034215    R214223089   Ananya Verma         9822334455   ananya.verma@stu.upes.ac.in      3     5     7.02  
+590034450    R214223155   Diya Patel           9844556677   diya.patel@stu.upes.ac.in        4     7     9.05  
+590034676    R214223001   Ridhima Jalwi        9876543210   ridhima.590034676@stu.upes.ac.in 1     1     9.40  
+590034330    R214223120   Rohan Gupta          9833445566   rohan.gupta@stu.upes.ac.in       1     2     5.40  
+------------------------------------------------------------------------------------------------------------------------
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 9
+
+=============================================================
+              AI-ASSISTED ACADEMIC ADVISOR                   
+=============================================================
+Enter Student SAP ID to generate personalized advice: 590034676
+
+------------------- ADVISORY REPORT -------------------------
+Student Name    : Ridhima Jalwi
+SAP ID          : 590034676
+Roll Number     : R214223001
+Year / Semester : Year 1, Semester 1
+Calculated CGPA : 9.40
+Performance Tier: [Excellent Performance]
+AI Recommendation:
+  "Outstanding academic record! Maintain your current study pattern. Recommended to engage in research publications, competitive programming, and target premier tier-1 technical internships."
+-------------------------------------------------------------
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 10
+
+========================================================================================
+            AI-ASSISTED ACADEMIC ADVISOR - MULTI-CASE DEMONSTRATION                     
+         (Verifying Decision-Making Function Across Different CGPA Tiers)              
+========================================================================================
+
+[Case 1] Tested CGPA: 9.40
+  Category      : Excellent Performance
+  Recommendation: Outstanding academic record! Maintain your current study pattern. Recommended to engage in research publications, competitive programming, and target premier tier-1 technical internships.
+
+[Case 2] Tested CGPA: 8.30
+  Category      : Good Performance
+  Recommendation: Consistent and solid performance. Maintain your regular study schedule, focus on subjects where SGPA dipped below 8.0, and undertake domain-specific capstone projects.
+
+[Case 3] Tested CGPA: 7.02
+  Category      : Needs Improvement
+  Recommendation: Moderate performance. Needs improvement - focus more on core subjects with lower SGPA, seek faculty mentoring during office hours, and dedicate 2 hours daily for concept reinforcement.
+
+[Case 4] Tested CGPA: 5.40
+  Category      : Requires Immediate Attention
+  Recommendation: Academic warning zone. Requires immediate attention - consult your academic counselor, enroll in peer-assisted remedial classes, solve previous years' question papers, and rebuild foundational concepts.
+========================================================================================
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 1
+
+--- ADD NEW STUDENT RECORD ---
+Enter SAP ID (e.g. 590034676): Enter Roll Number (e.g. R214223001): Enter Full Name: Enter Phone Number: Enter Email ID: Enter Academic Year (1st=1, 2nd=2, 3rd=3, 4th=4): Enter Current Semester (1 to 8): Enter number of completed semesters with available SGPA (0 to 4):   Enter SGPA for Semester 1 (0.00 to 10.00):   Enter SGPA for Semester 2 (0.00 to 10.00):   Enter SGPA for Semester 3 (0.00 to 10.00): 
+[SUCCESS] Student record for 'Harshita Sen' (SAP ID: 590034999) added successfully!
+Calculated CGPA: 8.73
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 5
+
+Total Students: 6
+------------------------------------------------------------------------------------------------------------------------
+SAP ID       Roll No      Name                 Phone        Email                            Year  Sem   CGPA  
+------------------------------------------------------------------------------------------------------------------------
+590034676    R214223001   Ridhima Jalwi        9876543210   ridhima.590034676@stu.upes.ac.in 1     1     9.40  
+590034102    R214223045   Aarav Sharma         9811223344   aarav.sharma@stu.upes.ac.in      2     3     8.30  
+590034215    R214223089   Ananya Verma         9822334455   ananya.verma@stu.upes.ac.in      3     5     7.02  
+590034330    R214223120   Rohan Gupta          9833445566   rohan.gupta@stu.upes.ac.in       1     2     5.40  
+590034450    R214223155   Diya Patel           9844556677   diya.patel@stu.upes.ac.in        4     7     9.05  
+590034999    R214223200   Harshita Sen         9855667788   harshita.sen@stu.upes.ac.in      2     4     8.73  
+------------------------------------------------------------------------------------------------------------------------
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 6
+
+--- DELETE STUDENT RECORD ---
+Enter SAP ID of the student to delete: Found student: Rohan Gupta (SAP ID: 590034330, Roll No: R214223120)
+Are you sure you want to permanently delete this record? (y/n): [SUCCESS] Student record with SAP ID 590034330 successfully removed.
+Remaining students in database: 5
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 5
+
+Total Students: 5
+------------------------------------------------------------------------------------------------------------------------
+SAP ID       Roll No      Name                 Phone        Email                            Year  Sem   CGPA  
+------------------------------------------------------------------------------------------------------------------------
+590034676    R214223001   Ridhima Jalwi        9876543210   ridhima.590034676@stu.upes.ac.in 1     1     9.40  
+590034102    R214223045   Aarav Sharma         9811223344   aarav.sharma@stu.upes.ac.in      2     3     8.30  
+590034215    R214223089   Ananya Verma         9822334455   ananya.verma@stu.upes.ac.in      3     5     7.02  
+590034450    R214223155   Diya Patel           9844556677   diya.patel@stu.upes.ac.in        4     7     9.05  
+590034999    R214223200   Harshita Sen         9855667788   harshita.sen@stu.upes.ac.in      2     4     8.73  
+------------------------------------------------------------------------------------------------------------------------
+
+------------- MAIN MENU -------------
+ 1. Add Student Details
+ 2. Search and Display Student Record (by SAP ID)
+ 3. Calculate CGPA of All Students
+ 4. Calculate Average CGPA for Each Academic Year
+ 5. Display Records of All Students
+ 6. Delete an Individual Student Record
+ 7. Display All Records in Increasing Order of SAP ID
+ 8. Display All Records in Increasing Order of Name
+ 9. AI-Assisted Academic Advisor (CGPA-Based Recommendations)
+ 10. AI Advisor Demonstration (3 Distinct CGPA Cases)
+ 11. Exit
+-------------------------------------
+Enter your choice (1-11): 11
+
+Exiting Student Record Management System. Thank you!
