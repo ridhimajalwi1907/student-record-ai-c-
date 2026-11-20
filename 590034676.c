@@ -7,7 +7,7 @@
  * Student Name  : Ridhima Jalwi
  * SAP ID        : 590034676
  * =====================================================================================
- * Commit 2: Student record management functions (add, search, display, delete)
+ * Commit 3: CGPA calculation, yearly average analytics, and sorting functions
  * =====================================================================================
  */
 
@@ -39,13 +39,20 @@ void readLine(char *buffer, int size);
 int readInt(int *out);
 float readFloat(float *out);
 long long readLongLong(long long *out);
+float calculateCGPA(const Student *s);
+int getAvailableSGPACount(const Student *s);
 void initializeDefaultRecords(void);
 int findStudentIndexBySAP(long long sap_id);
 
 void addStudent(void);
 void searchStudent(void);
+void calculateAndDisplayAllCGPA(void);
+void calculateYearlyAverageCGPA(void);
 void displayAllStudents(void);
 void deleteStudent(void);
+void displaySortedBySAP(void);
+void displaySortedByName(void);
+
 void printTableHeader(void);
 void printStudentTableRow(const Student *s);
 
@@ -84,14 +91,14 @@ int main(void) {
         switch (choice) {
             case 1: addStudent(); break;
             case 2: searchStudent(); break;
-            case 3: printf("[INFO] CGPA calculation module in progress.\n"); break;
-            case 4: printf("[INFO] Yearly average module in progress.\n"); break;
+            case 3: calculateAndDisplayAllCGPA(); break;
+            case 4: calculateYearlyAverageCGPA(); break;
             case 5: displayAllStudents(); break;
             case 6: deleteStudent(); break;
-            case 7: printf("[INFO] SAP sorting module in progress.\n"); break;
-            case 8: printf("[INFO] Name sorting module in progress.\n"); break;
-            case 9: printf("[INFO] AI advisor module in progress.\n"); break;
-            case 10: printf("[INFO] AI demo module in progress.\n"); break;
+            case 7: displaySortedBySAP(); break;
+            case 8: displaySortedByName(); break;
+            case 9: printf("[INFO] AI advisor module under final integration.\n"); break;
+            case 10: printf("[INFO] AI demo module under final integration.\n"); break;
             case 11:
                 printf("Exiting system. Goodbye!\n");
                 return 0;
@@ -139,6 +146,26 @@ long long readLongLong(long long *out) {
     if (strlen(buf) == 0) return 0;
     *out = (long long)strtoll(buf, &endptr, 10);
     return (endptr != buf);
+}
+
+float calculateCGPA(const Student *s) {
+    float sum = 0.0f;
+    int count = 0, i;
+    for (i = 0; i < NUM_SEMESTERS; i++) {
+        if (s->sgpa[i] >= 0.0f) {
+            sum += s->sgpa[i];
+            count++;
+        }
+    }
+    return (count > 0) ? (sum / (float)count) : 0.0f;
+}
+
+int getAvailableSGPACount(const Student *s) {
+    int count = 0, i;
+    for (i = 0; i < NUM_SEMESTERS; i++) {
+        if (s->sgpa[i] >= 0.0f) count++;
+    }
+    return count;
 }
 
 int findStudentIndexBySAP(long long sap_id) {
@@ -191,7 +218,7 @@ void addStudent(void) {
     }
 
     students[student_count++] = s;
-    printf("[SUCCESS] Student '%s' added successfully.\n", s.name);
+    printf("[SUCCESS] Student '%s' added successfully. CGPA: %.2f\n", s.name, calculateCGPA(&s));
 }
 
 void searchStudent(void) {
@@ -204,9 +231,52 @@ void searchStudent(void) {
         printf("[NOT FOUND] No record for SAP ID %lld\n", sap);
         return;
     }
-    printf("\nFound: %s (SAP: %lld, Roll: %s, Year: %d, Sem: %d)\n",
+    printf("\nFound: %s (SAP: %lld, Roll: %s, Year: %d, Sem: %d, CGPA: %.2f)\n",
            students[idx].name, students[idx].sap_id, students[idx].roll_no,
-           students[idx].year, students[idx].semester);
+           students[idx].year, students[idx].semester, calculateCGPA(&students[idx]));
+}
+
+void calculateAndDisplayAllCGPA(void) {
+    int i;
+    printf("\n========================================================================================\n");
+    printf("               STUDENT CGPA CALCULATION REPORT (Average of Available SGPAs)              \n");
+    printf("========================================================================================\n");
+    printf("%-12s %-14s %-22s %-6s %-16s %-8s\n", "SAP ID", "Roll No", "Name", "Year", "Completed Sems", "CGPA");
+    printf("----------------------------------------------------------------------------------------\n");
+    for (i = 0; i < student_count; i++) {
+        printf("%-12lld %-14s %-22s %-6d %-16d %-8.2f\n",
+               students[i].sap_id, students[i].roll_no, students[i].name,
+               students[i].year, getAvailableSGPACount(&students[i]), calculateCGPA(&students[i]));
+    }
+    printf("========================================================================================\n");
+}
+
+void calculateYearlyAverageCGPA(void) {
+    int y, i;
+    int counts[5] = {0};
+    float sums[5] = {0.0f};
+
+    for (i = 0; i < student_count; i++) {
+        int yr = students[i].year;
+        if (yr >= 1 && yr <= 4) {
+            sums[yr] += calculateCGPA(&students[i]);
+            counts[yr]++;
+        }
+    }
+
+    printf("\n=============================================================\n");
+    printf("           ACADEMIC YEAR-WISE AVERAGE CGPA REPORT            \n");
+    printf("=============================================================\n");
+    printf("%-12s %-18s %-16s\n", "Academic Year", "Student Count", "Average CGPA");
+    printf("-------------------------------------------------------------\n");
+    for (y = 1; y <= 4; y++) {
+        if (counts[y] > 0) {
+            printf("Year %-7d %-18d %-16.2f\n", y, counts[y], sums[y] / (float)counts[y]);
+        } else {
+            printf("Year %-7d %-18d %-16s\n", y, 0, "N/A");
+        }
+    }
+    printf("=============================================================\n");
 }
 
 void deleteStudent(void) {
@@ -229,16 +299,48 @@ void deleteStudent(void) {
     }
 }
 
+void displaySortedBySAP(void) {
+    Student temp[MAX_STUDENTS];
+    int i, j;
+    for (i = 0; i < student_count; i++) temp[i] = students[i];
+    for (i = 0; i < student_count - 1; i++) {
+        for (j = 0; j < student_count - i - 1; j++) {
+            if (temp[j].sap_id > temp[j + 1].sap_id) {
+                Student sw = temp[j]; temp[j] = temp[j + 1]; temp[j + 1] = sw;
+            }
+        }
+    }
+    printf("\n--- SORTED BY SAP ID (ASCENDING) ---\n");
+    printTableHeader();
+    for (i = 0; i < student_count; i++) printStudentTableRow(&temp[i]);
+}
+
+void displaySortedByName(void) {
+    Student temp[MAX_STUDENTS];
+    int i, j;
+    for (i = 0; i < student_count; i++) temp[i] = students[i];
+    for (i = 0; i < student_count - 1; i++) {
+        for (j = 0; j < student_count - i - 1; j++) {
+            if (strcasecmp(temp[j].name, temp[j + 1].name) > 0) {
+                Student sw = temp[j]; temp[j] = temp[j + 1]; temp[j + 1] = sw;
+            }
+        }
+    }
+    printf("\n--- SORTED BY NAME (ASCENDING) ---\n");
+    printTableHeader();
+    for (i = 0; i < student_count; i++) printStudentTableRow(&temp[i]);
+}
+
 void printTableHeader(void) {
-    printf("----------------------------------------------------------------------------------------------------\n");
-    printf("%-12s %-12s %-20s %-12s %-28s %-5s %-5s\n",
-           "SAP ID", "Roll No", "Name", "Phone", "Email", "Year", "Sem");
-    printf("----------------------------------------------------------------------------------------------------\n");
+    printf("------------------------------------------------------------------------------------------------------------------------\n");
+    printf("%-12s %-12s %-20s %-12s %-32s %-5s %-5s %-6s\n",
+           "SAP ID", "Roll No", "Name", "Phone", "Email", "Year", "Sem", "CGPA");
+    printf("------------------------------------------------------------------------------------------------------------------------\n");
 }
 
 void printStudentTableRow(const Student *s) {
-    printf("%-12lld %-12s %-20s %-12s %-28s %-5d %-5d\n",
-           s->sap_id, s->roll_no, s->name, s->phone_no, s->email_id, s->year, s->semester);
+    printf("%-12lld %-12s %-20s %-12s %-32s %-5d %-5d %-6.2f\n",
+           s->sap_id, s->roll_no, s->name, s->phone_no, s->email_id, s->year, s->semester, calculateCGPA(s));
 }
 
 void displayAllStudents(void) {
@@ -246,7 +348,7 @@ void displayAllStudents(void) {
     printf("\nTotal Students: %d\n", student_count);
     printTableHeader();
     for (i = 0; i < student_count; i++) printStudentTableRow(&students[i]);
-    printf("----------------------------------------------------------------------------------------------------\n");
+    printf("------------------------------------------------------------------------------------------------------------------------\n");
 }
 
 void initializeDefaultRecords(void) {
@@ -284,6 +386,8 @@ void initializeDefaultRecords(void) {
     students[2].semester = 5;
     students[2].sgpa[0] = 7.00f;
     students[2].sgpa[1] = 7.20f;
+    students[2].sgpa[2] = 6.80f;
+    students[2].sgpa[3] = 7.10f;
 
     students[3].sap_id = 590034330LL;
     strcpy(students[3].roll_no, "R214223120");
@@ -303,4 +407,8 @@ void initializeDefaultRecords(void) {
     students[4].semester = 7;
     students[4].sgpa[0] = 8.80f;
     students[4].sgpa[1] = 9.10f;
+    students[4].sgpa[2] = 8.90f;
+    students[4].sgpa[3] = 9.30f;
+    students[4].sgpa[4] = 9.00f;
+    students[4].sgpa[5] = 9.20f;
 }
